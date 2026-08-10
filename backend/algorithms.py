@@ -1,12 +1,14 @@
-def insertion_sort_count(arr):
-    # Sorts the array and returns the number of comparisons/swaps
-    swaps = 0
-    for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
-        while j >= 0 and arr[j] > key:
-            arr[j + 1] = arr[j]
-            j -= 1
-            swaps += 1
-        arr[j + 1] = key
-    return arr, swaps
+def binary_search_count(arr, target):
+    low = 0
+    high = len(arr) - 1
+    comparisons = 0
+    while low <= high:
+        comparisons += 1
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid, comparisons
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1, comparisons
